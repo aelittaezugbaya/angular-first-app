@@ -1,0 +1,41 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+        <script src="angular.min.js"></script>
+    </head>
+    <body>
+        
+        <div >
+            <h1> {{ 3 + 2 }} </h1>
+            <h1> ${{store.product.price}}</h1>
+            <p>{{store.product.description}}</p>
+        </div>
+        
+        <script src="app.js"></script>
+    </body>
+</html> -->
+<!DOCTYPE html>
+<html ng-app="store">
+    <head>
+            <title>Page Title</title>
+            <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+    </head>
+<body>
+
+    <div  ng-controller="StoreController as store">
+        <div class="list-group">
+            <div class="list-group-item" ng-repeat="product in store.products" ng-hide="product.soldOut" >
+                <h1> {{product.name}} </h1>
+                <h1> ${{product.price}}</h1>
+                <p>{{product.description}}</p>
+                <button class="btn btn-primary"ng-show="product.canPurchase">Add to Cart</button>
+            </div>
+        </div>
+       
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
